@@ -11,6 +11,7 @@ class App extends Component {
     victories02: 0
   };
 
+  //Acrescentar pontuação para jogador 01.
   changeUser01More(count) {
 
     this.setState({
@@ -28,6 +29,7 @@ class App extends Component {
     }
   }
 
+  //Acrescentar pontuação para jogador 02.
   changeUser02More(count) {
 
     this.setState({
@@ -45,6 +47,7 @@ class App extends Component {
     }
   }
 
+  //Decrementar pontução para jogador 01.
   changeUser01Less(count) {
     if (count > 0) {
       this.setState({
@@ -53,6 +56,16 @@ class App extends Component {
     }
   }
 
+  //Decrementar pontução para jogador 02.
+  changeUser02Less(count) {
+    if (count > 0) {
+      this.setState({
+        user02: count - 1
+      });
+    }
+  }
+
+  //Zerar as pontuações.
   reset() {
     this.setState({
       user02: 0,
@@ -90,7 +103,7 @@ class App extends Component {
               <Text style={{ color: '#FFF', fontSize: 16 }}>Equipe azul</Text>
               <Text style={{ marginTop: -10, fontSize: 150, color: '#FFF', fontWeight: 'bold' }}>{this.state.user02}</Text>
               <View style={{ flexDirection: 'row' }}>
-                <TouchableHighlight onPress={() => this.changeUser01Less(this.state.user01)} underlayColor="transparent">
+                <TouchableHighlight onPress={() => this.changeUser02Less(this.state.user02)} underlayColor="transparent">
                   <Image source={require('./assets/button2.fw.png')} style={{ width: 50, height: 50 }} />
                 </TouchableHighlight>
                 <TouchableHighlight onPress={() => this.changeUser02More(this.state.user02)} underlayColor="transparent">
